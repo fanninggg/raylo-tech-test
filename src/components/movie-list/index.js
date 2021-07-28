@@ -5,6 +5,8 @@ function MovieList() {
 
   const fetchMovies = () => {
     const year = document.getElementById('yearInput').value;
+    document.getElementById('movieList').innerHTML = `Loading the best movies from ${year}...`
+    
     fetch(`https://jsonmock.hackerrank.com/api/movies?Year=${year}`)
       .then(response => response.json())
       .then(movies => insertMovies(movies.data))
@@ -32,7 +34,6 @@ function MovieList() {
       </section>
 
       <ul className="mt-50 styled" data-testid="movieList" id="movieList">
-        <li className="slide-up-fade-in py-10"></li>
       </ul>
 
       <div className="mt-50 slide-up-fade-in" data-testid="no-result"></div>
